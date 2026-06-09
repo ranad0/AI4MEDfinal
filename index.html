@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI in Healthcare Final Exam — Premium Study Site</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">×</button>
+    <div class="brand">
+      <div class="logo">AI</div>
+      <div><strong>Healthcare Final</strong><span>Premium Study Site</span></div>
+    </div>
+    <nav>
+      <a href="#dashboard" class="active">Dashboard</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#chapters">Study Notes</a>
+      <a href="#agentic">Agentic AI Visual</a>
+      <a href="#diagrams">Chapter 3 Diagrams</a>
+      <a href="#azuremap">Azure Services Map</a>
+      <a href="#projects">Projects</a>
+      <a href="#practice">MCQ Practice</a>
+      <a href="#mock">Mock Exam</a>
+      <a href="#flashcards">Flashcards</a>
+      <a href="#shortanswers">Short Answers</a>
+      <a href="#glossary">Glossary</a>
+      <a href="#cheatsheet">Cheat Sheet</a>
+    </nav>
+    <div class="side-card">
+      <div class="mini-label">Progress</div>
+      <div class="progress"><span id="globalProgress"></span></div>
+      <small id="progressText">0 topics completed</small>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="hamb" id="hamb" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">☰</button>
+      <div class="search-wrap"><input id="searchInput" type="search" placeholder="Search concepts, notes, MCQs…" autocomplete="off" /><button id="clearSearch" class="search-clear" title="Clear search" aria-label="Clear search">×</button><span>⌕</span><div id="searchResults" class="search-results" role="listbox"></div></div>
+      <button id="themeToggle" class="pill">Dark / Light</button>
+      <button id="printBtn" class="pill ghost">Print</button>
+    </header>
+
+    <section id="dashboard" class="hero section">
+      <div class="hero-copy">
+        <div class="eyebrow">Final Exam Master Pack</div>
+        <h1>AI in Healthcare — Ultimate Study Site</h1>
+        <p>This upgraded site turns the final material into a complete study dashboard: organized notes, visual workflows, traps, MCQs, mock exams, flashcards, short answers, glossary, and a printable cheat sheet.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#practice">Start MCQ Practice</a>
+          <a class="btn secondary" href="#roadmap">Study Roadmap</a>
+        </div>
+      </div>
+      <div class="score-card glass">
+        <h3>Exam Focus</h3>
+        <div class="stat-grid">
+          <div><strong id="mcqCount">0</strong><span>MCQs</span></div>
+          <div><strong id="flashCount">0</strong><span>Flashcards</span></div>
+          <div><strong>11</strong><span>Sections</span></div>
+          <div><strong>4</strong><span>OHSC Modules</span></div>
+        </div>
+        <div class="priority-list">
+          <b>Highest-yield:</b>
+          <span>Chapter 2 Healthcare Data</span>
+          <span>Chapter 3 Agentic AI</span>
+          <span>Project 2 Agentic Extension</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section">
+      <div class="section-head"><span class="eyebrow">How to Use</span><h2>Study Roadmap</h2><p>Use this order to understand, remember, then practice.</p></div>
+      <div id="studyPlan" class="timeline"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><span class="eyebrow">High-Yield</span><h2>Most Likely Exam Areas</h2></div>
+      <div class="cards three">
+        <article class="card hot"><h3>Agentic AI Architecture</h3><p>LLM → RAG → Agent → System, orchestrator, memory, tools, safety layer, observe-think-plan-act-reflect loop.</p></article>
+        <article class="card hot"><h3>Healthcare Data</h3><p>Structured/unstructured data, EHR/EMR, observational data, bias, patient-feature matrix, feature engineering, metadata, missing data.</p></article>
+        <article class="card hot"><h3>Project 2 Trap</h3><p>The LLM does not classify DNA. The trained CNN-BiLSTM model classifies through predict_dna(sequence); the LLM formats the response.</p></article>
+      </div>
+    </section>
+
+    <section id="chapters" class="section">
+      <div class="section-head"><span class="eyebrow">Study Notes</span><h2>Organized Material</h2><p>Read the must-know points, then test yourself from the same topic.</p></div>
+      <div class="filters" id="chapterFilters"></div>
+      <div id="chapterGrid" class="chapter-grid"></div>
+    </section>
+
+    <section id="agentic" class="section">
+      <div class="section-head"><span class="eyebrow">Visual Understanding</span><h2>Agentic AI Architecture</h2><p>Know this visually. It is one of the most likely exam areas.</p></div>
+      <div class="visual-grid">
+        <div class="flow-card">
+          <h3>LLM → Agent Evolution</h3>
+          <div class="flow horizontal"><span>LLM<br><small>text generation</small></span><b>→</b><span>RAG<br><small>+ retrieval</small></span><b>→</b><span>Agent<br><small>+ tools + planning</small></span><b>→</b><span>System<br><small>workflow execution</small></span></div>
+        </div>
+        <div class="flow-card">
+          <h3>Agent Internal Loop</h3>
+          <div class="cycle"><span>Observe</span><span>Think</span><span>Plan</span><span>Act</span><span>Reflect</span><em>Repeat</em></div>
+        </div>
+        <div class="flow-card wide">
+          <h3>Layered Architecture</h3>
+          <div class="layers">
+            <div>User Interface Layer <small>chat, files, visualizations</small></div>
+            <div>Orchestration Layer <small>task management, workflow manager, evaluation</small></div>
+            <div>Agent Core Systems <small>memory, planning, reasoning, tool selection</small></div>
+            <div>Tool Integration Layer <small>APIs, databases, web/search, code, ML models</small></div>
+            <div>Foundation Models <small>LLMs and multimodal models</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="diagrams" class="section">
+      <div class="section-head"><span class="eyebrow">Chapter 3 Visual Bank</span><h2>All Important Diagrams Explained</h2><p>Chapter 3 has many architecture diagrams. This section turns them into exam-ready visual cards: what the diagram shows, why it matters, and what to remember.</p></div>
+      <div class="diagram-toolbar glass">
+        <input id="diagramSearch" type="search" placeholder="Search diagrams: MCP, Azure, triage, tumor board…" />
+        <select id="diagramRange"><option value="all">All diagrams</option><option value="core">Core agent architecture</option><option value="healthcare">Healthcare workflows</option><option value="azure">Azure / deployment</option><option value="lab">Lab / project pipeline</option></select>
+      </div>
+      <div id="diagramBank" class="diagram-grid"></div>
+    </section>
+
+
+    <section id="azuremap" class="section">
+      <div class="section-head"><span class="eyebrow">Chapter 3 Exam Map</span><h2>Azure Services in the Healthcare AI Pipeline</h2><p>This is the diagram you flagged: learn it as a pipeline, not as random logos. The exam focus is usually: what each service does, where it appears, and how to differentiate similar services.</p></div>
+      <div class="azure-layout">
+        <article class="azure-visual glass searchable" id="azure-visual" data-search-type="Azure Exam Map" data-text="azure healthcare ai pipeline iot hub event hubs data lake synapse azure machine learning aks power bi power apps power automate entra id key vault monitor defender">
+          <div class="diagram-head"><span class="badge">High Yield</span><span class="priority">Chapter 3</span></div>
+          <button class="diagram-img-btn" data-img="assets/chapter3-diagrams/azure_pipeline_user_sent.png" data-title="Azure Healthcare AI Pipeline — Exam Map" aria-label="Open Azure pipeline diagram">
+            <img src="assets/chapter3-diagrams/azure_pipeline_user_sent.png" alt="Azure healthcare AI pipeline diagram" loading="lazy" />
+          </button>
+          <div class="exam-tip"><b>Core memory:</b> Ingest → Store → Train/Deploy → Consume. Security and monitoring wrap the whole pipeline.</div>
+        </article>
+        <article class="card azure-summary searchable" id="azure-summary" data-search-type="Azure Service Summary" data-text="event hubs streaming iot hub devices data lake storage azure ml train deploy power bi dashboards power apps low code power automate workflow">
+          <h3>Fast Differentiation</h3>
+          <div class="azure-mini-table">
+            <div><b>IoT Hub</b><span>connect/manage devices</span></div>
+            <div><b>Event Hubs</b><span>real-time streaming ingestion</span></div>
+            <div><b>Data Lake</b><span>big/raw data storage</span></div>
+            <div><b>Azure ML</b><span>train + deploy models</span></div>
+            <div><b>AKS</b><span>run scalable containers</span></div>
+            <div><b>Power BI</b><span>dashboards and reports</span></div>
+            <div><b>Power Apps</b><span>low-code app interface</span></div>
+            <div><b>Power Automate</b><span>workflow actions</span></div>
+          </div>
+        </article>
+      </div>
+      <div id="azurePipeline" class="pipeline-steps"></div>
+      <div class="section-head compact"><span class="eyebrow">Service Cards</span><h2>What Each Azure Service Does</h2><p>Use the memory line first. Then read the role and trap.</p></div>
+      <div class="filters" id="azureStageFilters"></div>
+      <div id="azureServices" class="azure-service-grid"></div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head"><span class="eyebrow">Project Review</span><h2>Project 1 & Project 2</h2></div>
+      <div class="cards two">
+        <article class="card project"><h3>Project 1: DNA Sequence Classification</h3><ol><li>Load DNA dataset</li><li>Clean/preprocess sequences</li><li>Encode A/C/G/T sequences</li><li>Train deep learning model</li><li>Evaluate using classification metrics</li><li>Predict class for new sequences</li></ol><p><b>Possible models:</b> CNN, RNN, GRU, LSTM, BiLSTM, hybrid CNN-BiLSTM.</p></article>
+        <article class="card project important"><h3>Project 2: Agentic AI Extension</h3><ol><li>User enters DNA sequence</li><li>Agent receives sequence</li><li>Agent calls <code>predict_dna(sequence)</code></li><li>CNN-BiLSTM returns class + confidence</li><li>Rule: &lt;70% = Low Confidence, ≥70% = Accepted</li><li>Qwen LLM formats final response</li></ol><p><b>Golden answer:</b> The LLM does not classify DNA; the trained model does.</p></article>
+      </div>
+    </section>
+
+    <section id="practice" class="section">
+      <div class="section-head"><span class="eyebrow">Practice</span><h2>MCQ Practice Bank</h2><p>Filter by topic, answer, and learn from explanations.</p></div>
+      <div class="practice-toolbar glass">
+        <select id="topicFilter"></select>
+        <select id="difficultyFilter"><option value="all">All difficulty</option><option value="easy">Easy</option><option value="medium">Medium</option><option value="hard">Hard</option></select>
+        <button id="shufflePractice" class="btn small">Shuffle</button>
+        <button id="resetPractice" class="btn small secondary">Reset</button>
+        <span id="practiceStats"></span>
+      </div>
+      <div id="mcqList" class="mcq-list"></div>
+    </section>
+
+    <section id="mock" class="section">
+      <div class="section-head"><span class="eyebrow">Exam Simulation</span><h2>Mock Exam Generator</h2><p>Generate a randomized exam from all topics.</p></div>
+      <div class="mock-panel glass">
+        <label>Number of questions <input id="mockSize" type="number" value="50" min="10" max="100"></label>
+        <button id="startMock" class="btn">Start Mock Exam</button>
+        <button id="submitMock" class="btn secondary" disabled>Submit Mock</button>
+        <div id="mockResult" class="mock-result"></div>
+      </div>
+      <div id="mockList" class="mcq-list"></div>
+    </section>
+
+    <section id="flashcards" class="section">
+      <div class="section-head"><span class="eyebrow">Memorize</span><h2>Flashcards</h2><p>Click the card to flip. Use Next to move quickly.</p></div>
+      <div class="flash-wrap">
+        <div id="flashCard" class="flash-card"><div class="front"></div><div class="back"></div></div>
+        <div class="flash-controls"><button id="prevFlash" class="btn small secondary">Previous</button><button id="flipFlash" class="btn small">Flip</button><button id="nextFlash" class="btn small secondary">Next</button></div>
+        <small id="flashMeta"></small>
+      </div>
+    </section>
+
+    <section id="shortanswers" class="section">
+      <div class="section-head"><span class="eyebrow">Written Practice</span><h2>Short Answer Trainer</h2><p>Practice likely explanation questions.</p></div>
+      <div id="shortAnswerList" class="accordion"></div>
+    </section>
+
+    <section id="glossary" class="section">
+      <div class="section-head"><span class="eyebrow">Definitions</span><h2>Glossary</h2></div>
+      <div id="glossaryList" class="glossary"></div>
+    </section>
+
+    <section id="cheatsheet" class="section cheat">
+      <div class="section-head"><span class="eyebrow">Final Review</span><h2>One-Page Cheat Sheet</h2></div>
+      <div class="cheat-grid">
+        <div><h3>Healthcare System</h3><p>Patients need care. Providers deliver care. Intermediaries pool risk and pay. Quality = safe, effective, patient-centered, timely, efficient, equitable.</p></div>
+        <div><h3>Healthcare Data</h3><p>Structured tables, unstructured notes/images/signals, EHR/EMR, observational data, bias, missingness, patient-feature matrix, feature engineering, metadata.</p></div>
+        <div><h3>Agentic AI</h3><p>LLM = text. RAG = retrieval. Agent = tools + planning. System = workflow. Components: orchestrator, LLM, memory, tools, safety.</p></div>
+        <div><h3>ML Types</h3><p>Supervised = labelled prediction. Unsupervised = hidden patterns/clusters. RL = decisions with rewards/penalties over time.</p></div>
+        <div><h3>Deep Learning</h3><p>Input → hidden → output. CNNs detect image features via convolution + pooling + fully connected layers. Used in X-rays, MRI, CT, pathology, genomics.</p></div>
+        <div><h3>Projects</h3><p>Project 1: DNA classification using deep learning. Project 2: agent calls predict_dna; CNN-BiLSTM classifies; LLM only formats; &lt;70% Low Confidence.</p></div>
+      </div>
+    </section>
+
+    <footer>Built for offline study. Open <b>index.html</b> anytime. Your progress is saved locally in this browser.</footer>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

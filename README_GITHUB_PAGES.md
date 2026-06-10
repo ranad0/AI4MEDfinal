@@ -22,3 +22,7 @@ This folder is ready for GitHub Pages.
 - Mobile menu and search fixes.
 - GitHub Pages-ready static files.
 
+
+
+## Latest AI481 Chapter 3 Advanced Upgrade
+This version adds the missing second-half Chapter 3 material: Production Requirements, Azure Cloud Architecture, AKS, Azure Functions, Event Hub, Cosmos DB, Azure AI Services, Azure OpenAI, Azure Machine Learning, MCP integration, API endpoint/scoring URI, JSON payloads, validation/error handling, lab pipeline, Visual Exam Bank, extra MCQs, flashcards, and short-answer practice.

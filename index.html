@@ -22,6 +22,7 @@
       <a href="#agentic">Agentic AI Visual</a>
       <a href="#diagrams">Chapter 3 Diagrams</a>
       <a href="#azuremap">Azure Services Map</a>
+      <a href="#ch3advanced">Ch3 Advanced</a>
       <a href="#projects">Projects</a>
       <a href="#practice">MCQ Practice</a>
       <a href="#mock">Mock Exam</a>
@@ -157,6 +158,103 @@
       <div class="filters" id="azureStageFilters"></div>
       <div id="azureServices" class="azure-service-grid"></div>
     </section>
+
+
+
+    <section id="ch3advanced" class="section advanced-ch3 searchable" data-search-type="Chapter 3 Advanced" data-text="production requirements security monitoring scalability compliance production pipeline input validation agent monitoring output azure cloud architecture user web app api gateway microservices agent service mcp layer azure apis ehr db llm orchestrator tools memory aks azure functions event hub cosmos db azure ai services azure openai azure machine learning aml mlops scoring uri json payload authorization timeout fallback lab pipeline deploy endpoint validation error handling">
+      <div class="section-head">
+        <span class="eyebrow">Chapter 3 Advanced</span>
+        <h2>Production, Azure, Deployment & Lab Pipeline</h2>
+        <p>This section completes the second half of Chapter 3. It turns the production, Azure, API, validation, and lab slides into exam-ready explanations.</p>
+      </div>
+
+      <div class="cards four advanced-grid">
+        <article class="card hot"><h3>Production Requirements</h3><p><b>Security</b> protects data and access. <b>Monitoring</b> watches logs, failures, and performance. <b>Scalability</b> handles more users/data. <b>Compliance</b> keeps the system aligned with healthcare rules.</p><div class="exam-tip"><b>Exam note:</b> A production healthcare AI system needs more than an agent prototype.</div></article>
+        <article class="card"><h3>Production Pipeline</h3><p><b>Input Validation → Agent → Monitoring → Output</b>. Validate patient data first, let the agent reason/use tools, monitor the process, then produce a safe output.</p><div class="exam-tip"><b>Likely question:</b> Why validate before calling the model?</div></article>
+        <article class="card"><h3>Azure Cloud Pipeline</h3><p><b>User → Web App → API Gateway → Microservices → Agent Service → MCP Layer → Azure APIs / EHR / DB</b>.</p><div class="exam-tip"><b>Memory shortcut:</b> Frontend receives, backend routes, agent coordinates, MCP standardizes tools.</div></article>
+        <article class="card"><h3>Lab Pipeline</h3><p><b>Build agent → Connect Azure ML → Deploy API → Test workflow</b>. The lab mirrors a simplified real healthcare AI pipeline.</p><div class="exam-tip"><b>Expected output:</b> Agent demo + API call + test case + risk reflection.</div></article>
+      </div>
+
+      <div class="section-head compact"><span class="eyebrow">Production</span><h2>Production Pipeline Breakdown</h2></div>
+      <div class="table-wrap">
+        <table class="study-table">
+          <thead><tr><th>Step</th><th>What it does</th><th>Why it matters in healthcare</th><th>What can go wrong</th><th>Likely exam question</th></tr></thead>
+          <tbody>
+            <tr><td>Input Validation</td><td>Checks missing, invalid, unsafe, or wrongly formatted data.</td><td>Bad patient data can cause unsafe model output.</td><td>Missing age/history, impossible values, wrong JSON schema.</td><td>Why should input be validated before API calls?</td></tr>
+            <tr><td>Agent</td><td>Plans, reasons, selects tools, calls APIs/models, and prepares response.</td><td>Coordinates clinical workflow without replacing the clinician.</td><td>Wrong tool choice, hallucination, overconfident reasoning.</td><td>What is the agent responsible for in production?</td></tr>
+            <tr><td>Monitoring</td><td>Tracks logs, latency, failures, drift, and system health.</td><td>Hospitals need traceability and safe operation after deployment.</td><td>Endpoint timeout, untracked errors, degraded performance.</td><td>Why is monitoring not optional in healthcare AI?</td></tr>
+            <tr><td>Output</td><td>Shows prediction, probability/class, explanation, and next action.</td><td>Output must be understandable and safe for clinical use.</td><td>Ambiguous recommendation, missing confidence, no fallback.</td><td>What should a safe healthcare AI output include?</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-head compact"><span class="eyebrow">Microservices</span><h2>Healthcare Microservices Breakdown</h2></div>
+      <div class="table-wrap">
+        <table class="study-table">
+          <thead><tr><th>Service</th><th>Function</th><th>Healthcare example</th><th>Likely exam question</th></tr></thead>
+          <tbody>
+            <tr><td>Auth Service</td><td>Handles login, identity, roles, and permissions.</td><td>Only authorized clinicians can access patient data.</td><td>Which service controls access?</td></tr>
+            <tr><td>Patient Service</td><td>Manages patient profile, demographics, and records access.</td><td>Retrieves patient age, history, and clinical context.</td><td>Which service provides patient information?</td></tr>
+            <tr><td>AI Agent Service</td><td>Runs the agent reasoning, planning, tool calls, and response generation.</td><td>Triage assistant calls a risk model and explains result.</td><td>Which service handles AI coordination?</td></tr>
+            <tr><td>Notification Service</td><td>Sends alerts, reminders, or messages.</td><td>Notify clinician when risk is high or action is needed.</td><td>Which service sends alerts?</td></tr>
+            <tr><td>Monitoring Service</td><td>Collects logs, metrics, failures, and health signals.</td><td>Detects endpoint timeout or unusually slow predictions.</td><td>Which service tracks system health?</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-head compact"><span class="eyebrow">Azure Exam Map</span><h2>AKS vs Functions vs Event Hub vs Cosmos DB vs Azure ML vs Azure OpenAI</h2></div>
+      <div class="table-wrap">
+        <table class="study-table">
+          <thead><tr><th>Service</th><th>Keyword</th><th>Main role</th><th>Healthcare example</th><th>Exam trap</th></tr></thead>
+          <tbody>
+            <tr><td>AKS</td><td>Containers / scale</td><td>Runs microservices and agent services at scale with high availability.</td><td>Host agent service and backend APIs.</td><td>AKS runs services; it does not train models.</td></tr>
+            <tr><td>Azure Functions</td><td>Serverless events</td><td>Runs lightweight event-driven tasks.</td><td>Trigger a function when new patient data arrives.</td><td>Functions are for event tasks, not full container orchestration.</td></tr>
+            <tr><td>Event Hub</td><td>Streaming ingestion</td><td>Receives high-throughput real-time data streams.</td><td>Wearable or IoT monitoring data feeds AI pipeline.</td><td>Event Hub ingests streams; Cosmos DB stores data.</td></tr>
+            <tr><td>Cosmos DB</td><td>NoSQL / low latency</td><td>Stores interaction data, context, events, and memory.</td><td>Store agent session context or patient interaction events.</td><td>Cosmos DB is storage, not model training.</td></tr>
+            <tr><td>Azure AI Services</td><td>Pre-built AI</td><td>Language, vision, and speech APIs without training from scratch.</td><td>Speech-to-text for doctors, text analytics for clinical notes.</td><td>Use it when the task is prebuilt AI, not custom ML training.</td></tr>
+            <tr><td>Azure OpenAI</td><td>LLM API</td><td>Provides LLM reasoning through secure enterprise API.</td><td>Agent reasoning and response generation.</td><td>Azure OpenAI reasons; Azure ML trains/deploys custom models.</td></tr>
+            <tr><td>Azure Machine Learning</td><td>Model lifecycle</td><td>Build, train, register, version, and deploy models as APIs.</td><td>Clinical risk score model endpoint.</td><td>If the question says train/deploy model, answer Azure ML.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="advanced-workflow glass">
+        <h3>Integration: AI + Azure ML + Agents</h3>
+        <div class="flow horizontal wrap"><span>Train model in Azure ML</span><b>→</b><span>Deploy as API endpoint</span><b>→</b><span>Agent calls model via MCP</span><b>→</b><span>Use result in clinical workflow</span></div>
+        <p><b>Memory shortcut:</b> Model predicts, Agent coordinates, LLM explains, Safety validates.</p>
+      </div>
+
+      <div class="section-head compact"><span class="eyebrow">Lab</span><h2>End-to-End Lab Pipeline</h2></div>
+      <div class="table-wrap">
+        <table class="study-table">
+          <thead><tr><th>Lab step</th><th>Tool used</th><th>Input</th><th>Output</th><th>Risk</th></tr></thead>
+          <tbody>
+            <tr><td>Build the Agent</td><td>Python logic / schema</td><td>Symptoms, age, history</td><td>Reasoning plan + prepared tool call</td><td>Bad schema or unsafe reasoning</td></tr>
+            <tr><td>Prepare Azure ML Model</td><td>Azure ML workspace</td><td>Dataset or loaded model</td><td>Registered model + inference script</td><td>Wrong dependencies or model version</td></tr>
+            <tr><td>Deploy Endpoint</td><td>Azure ML online endpoint</td><td>Registered model</td><td>Scoring URI + authentication key/token</td><td>Endpoint fails or auth misconfigured</td></tr>
+            <tr><td>Connect Agent to API</td><td>Python requests / SDK</td><td>JSON payload</td><td>Prediction/probability/class label</td><td>Timeout, invalid JSON, missing fields</td></tr>
+            <tr><td>Test Workflow</td><td>Sample healthcare input</td><td>Mock patient case</td><td>Recommended action + explanation</td><td>No safety check or unclear output</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cards three">
+        <article class="card"><h3>Sample API Call Structure</h3><p><b>POST</b> to Azure ML scoring URI. Headers: <b>Content-Type</b> + <b>Authorization</b>. Body: patient features in JSON. Response: prediction, probability, or class label.</p></article>
+        <article class="card"><h3>Validation & Error Handling</h3><p>Check missing fields, invalid patient input, endpoint failure, timeout, and unknown cases. Always add fallback responses for unsafe/uncertain cases.</p></article>
+        <article class="card"><h3>Lab Deliverables</h3><p>Agent design diagram, working Azure ML endpoint, API integration code snippet, workflow demo, and reflection on risks and limitations.</p></article>
+      </div>
+
+      <div class="section-head compact"><span class="eyebrow">Visual Exam Bank</span><h2>Final Visual Summary Slides</h2><p>These final visuals should be studied as redrawable exam diagrams.</p></div>
+      <div class="visual-bank-grid">
+        <article class="diagram-card searchable" id="visual-agentic-architecture" data-search-type="Visual Exam Bank" data-text="agentic ai architecture orchestrator llm memory tools mcp redraw exam"><button class="diagram-img-btn" data-img="assets/chapter3-diagrams/ch3_page_83.jpg" data-title="Visual: Agentic AI Architecture"><img src="assets/chapter3-diagrams/ch3_page_83.jpg" alt="Agentic AI Architecture visual"></button><h3>Agentic AI Architecture</h3><p>Shows the core components: orchestrator, LLM, memory, tools, MCP. Students should be able to redraw and explain each block.</p><div class="exam-tip"><b>Doctor may ask:</b> Which component controls workflow? <b>Answer:</b> Orchestrator.</div></article>
+        <article class="diagram-card searchable" id="visual-healthcare-flow" data-search-type="Visual Exam Bank" data-text="healthcare system flow user app backend agent apis fhir hl7 ehr pacs"><button class="diagram-img-btn" data-img="assets/chapter3-diagrams/ch3_page_84.jpg" data-title="Visual: Healthcare System Flow"><img src="assets/chapter3-diagrams/ch3_page_84.jpg" alt="Healthcare System Flow visual"></button><h3>Healthcare System Flow</h3><p>Shows how a user app connects through backend and APIs to healthcare systems such as EHR/PACS using FHIR/HL7.</p><div class="exam-tip"><b>Exam tip:</b> APIs connect the AI layer to real hospital data sources.</div></article>
+        <article class="diagram-card searchable" id="visual-azure-cloud" data-search-type="Visual Exam Bank" data-text="azure cloud architecture aks functions event hub cosmos db microservices storage model serving"><button class="diagram-img-btn" data-img="assets/chapter3-diagrams/ch3_page_85.jpg" data-title="Visual: Azure Cloud Architecture"><img src="assets/chapter3-diagrams/ch3_page_85.jpg" alt="Azure Cloud Architecture visual"></button><h3>Azure Cloud Architecture</h3><p>Shows Azure microservices for healthcare AI at scale: AKS, Functions, Event Hub, Cosmos DB.</p><div class="exam-tip"><b>Exam tip:</b> Explain data movement: ingestion, compute, storage, model serving.</div></article>
+        <article class="diagram-card searchable" id="visual-mcp" data-search-type="Visual Exam Bank" data-text="mcp interaction agent tools ehr risk model drug db structured responses"><button class="diagram-img-btn" data-img="assets/chapter3-diagrams/ch3_page_86.jpg" data-title="Visual: MCP Interaction"><img src="assets/chapter3-diagrams/ch3_page_86.jpg" alt="MCP Interaction visual"></button><h3>MCP Interaction</h3><p>MCP standardizes how the agent calls tools and receives structured responses from EHR, risk model, or drug database.</p><div class="exam-tip"><b>Memory:</b> Agent → MCP → Tools.</div></article>
+        <article class="diagram-card searchable" id="visual-triage" data-search-type="Visual Exam Bank" data-text="clinical workflow triage symptoms data retrieval model decision chest pain dizziness risk score route patient"><button class="diagram-img-btn" data-img="assets/chapter3-diagrams/ch3_page_87.jpg" data-title="Visual: Clinical Workflow Triage"><img src="assets/chapter3-diagrams/ch3_page_87.jpg" alt="Clinical Workflow Triage visual"></button><h3>Clinical Workflow Triage</h3><p>Patient symptoms lead to data retrieval, model scoring, and routing decision.</p><div class="exam-tip"><b>Doctor may ask:</b> What data is needed before safe model decision?</div></article>
+        <article class="diagram-card searchable" id="visual-lab" data-search-type="Visual Exam Bank" data-text="lab pipeline build agent connect azure ml deploy api test workflow"><button class="diagram-img-btn" data-img="assets/chapter3-diagrams/ch3_page_89.jpg" data-title="Visual: Lab Pipeline"><img src="assets/chapter3-diagrams/ch3_page_89.jpg" alt="Lab Pipeline visual"></button><h3>Lab Pipeline</h3><p>Build the workflow, connect Azure ML, deploy an API, and test it.</p><div class="exam-tip"><b>Expected output:</b> Agent demo + API call + test case + risk reflection.</div></article>
+      </div>
+    </section>
+
 
     <section id="projects" class="section">
       <div class="section-head"><span class="eyebrow">Project Review</span><h2>Project 1 & Project 2</h2></div>

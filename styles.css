@@ -60,3 +60,19 @@ body.modal-open{overflow:hidden}
 @media(max-width:1080px){.pipeline-steps{grid-template-columns:1fr}.pipeline-step:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-22px;transform:translateX(-50%)}.azure-service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.azure-layout{grid-template-columns:1fr}.azure-visual .diagram-img-btn img{height:260px}.azure-service-grid{grid-template-columns:1fr}.azure-mini-table div{grid-template-columns:1fr}.pipeline-step{padding:14px}}
 @media print{.azure-layout,.pipeline-steps,.azure-service-grid{grid-template-columns:1fr 1fr}.pipeline-step::after{display:none}.azure-visual .diagram-img-btn img{height:auto}.azure-service-card,.pipeline-step,.azure-visual{break-inside:avoid}}
+
+
+/* Chapter 3 Advanced Upgrade */
+.advanced-ch3 .advanced-grid .card {min-height: 220px;}
+.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.04);box-shadow:var(--shadow-sm);margin:18px 0 30px;}
+.study-table{width:100%;border-collapse:collapse;min-width:850px;font-size:.95rem;}
+.study-table th,.study-table td{padding:14px 16px;border-bottom:1px solid var(--border);vertical-align:top;text-align:left;}
+.study-table th{background:rgba(59,130,246,.14);color:var(--text);font-weight:800;}
+.study-table tr:hover td{background:rgba(255,255,255,.035);}
+.advanced-workflow{padding:22px;border-radius:22px;margin:24px 0;}
+.flow.wrap{flex-wrap:wrap;gap:10px;}
+.flow.wrap span{min-width:190px;text-align:center;}
+.visual-bank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+.advanced-ch3 .diagram-card img{max-height:260px;object-fit:contain;background:#fff;}
+@media (max-width:720px){.study-table{min-width:680px;font-size:.86rem}.advanced-ch3 .flow.horizontal{align-items:stretch}.flow.wrap span{min-width:100%;}.flow.wrap b{display:none}}
+@media print{#ch3advanced{break-before:page}.table-wrap{overflow:visible}.study-table{min-width:0;font-size:10px}.advanced-ch3 .diagram-card img{max-height:140px}}
